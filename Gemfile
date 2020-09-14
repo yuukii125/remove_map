@@ -20,13 +20,31 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'pry-byebug'
+gem 'pry-doc'
+gem 'pry-rails'
+
+# 検索
+gem 'ransack'
+# ページネーション
+gem 'kaminari'
+# ログイン
+gem 'device'
+# 画像投稿
+# gem 'carrierwave'
+# gem 'mini_magick'
+# 地図表示
+# gem 'geocoder'　
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
