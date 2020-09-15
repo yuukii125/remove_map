@@ -33,14 +33,14 @@ gem 'kaminari'
 # ログイン
 gem 'device'
 # 画像投稿
-# gem 'carrierwave'
-# gem 'mini_magick'
+gem 'carrierwave'
+gem 'mini_magick'
 # 地図表示
-# gem 'geocoder'　
+gem 'geocoder'
 
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
