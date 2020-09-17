@@ -10,16 +10,11 @@
 </head>
 
 <body>
-<header>
-
-</header>
-
+<%= render'shared/header' %>
+<%= render'layouts/notification' %>
 <main>
   <%= yield %>
 </main>
-
-<footer>
-
-</footer>
+<%= render'shared/footer' %>
 </body>
 </html>
