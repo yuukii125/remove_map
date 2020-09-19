@@ -31,7 +31,7 @@ gem 'ransack'
 # ページネーション
 gem 'kaminari'
 # ログイン
-gem 'device'
+gem 'devise'
 # 画像投稿
 gem 'carrierwave'
 gem 'mini_magick'

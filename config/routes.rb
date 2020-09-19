@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'reviews/index'
-  get 'likes/index'
-  get 'likes/show'
-  get 'salons/index'
-  get 'salons/show'
-  get 'salons/edit'
-  get 'users/show'
-  get 'users/edit'
+  devise_for :users
   root 'home#index'
+  
+  resources :salon
 end
