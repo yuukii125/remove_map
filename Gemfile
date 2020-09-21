@@ -37,6 +37,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 # 地図表示
 gem 'geocoder'
+# 日本語化
+gem 'rails-i18n'
+gem 'devise-i18n'
+# Bootstrap
+gem 'devise-bootstrap-views'
 
 
 # Use Active Storage variant

@@ -7,3 +7,11 @@ main {
   text-align: center;
   padding: 1rem;
 }
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
