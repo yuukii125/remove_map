@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :users, only: [:show]
-  resources :salon
+
+  resources :salon do
+    resources :review
+  end
 end
