@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :salons  
   has_many :reviews
+
+  mount_uploader :image, ImageUploader
 end

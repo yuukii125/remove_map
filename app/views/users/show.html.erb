@@ -1,6 +1,11 @@
 <div class="user_show">
   <div class="card">
     <h2 class="card-body">
+      <% if @user.image? %>
+        <%= image_tag @user.image.url, size: '100' %>
+      <% else %>
+        <%= image_tag "/assets/default.jpg", size: '100' %>
+      <% end %>
       <%= @user.name %>
     </h2>
   </div>

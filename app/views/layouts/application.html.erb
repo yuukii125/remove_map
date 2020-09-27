@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>脱毛マップ</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <meta name="viewport" content="width=divice-width,initial-scale=1">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>脱毛マップ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
-<%= render'shared/header' %>
-<%= render'layouts/notification' %>
-<main>
-  <%= yield %>
-</main>
-<%= render'shared/footer' %>
-</body>
+  <body>
+    <%= render'shared/header' %>
+    <%= render'layouts/notification' %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render'shared/footer' %>
+  </body>
 </html>
