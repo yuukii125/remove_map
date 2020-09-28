@@ -17,7 +17,9 @@
     <h6>料金</h6>
       <%= @salon.fear %>
     <h6>HP</h6>
-      <%= link_to @salon.url, @salon.url, target: :_blank %>
+      <% if @salon.url.present? %>
+        <%= link_to @salon.url, @salon.url, target: :_blank %>
+      <% end %>
   </div>
   <div class="salon_map">
     <h5>場所</h5>

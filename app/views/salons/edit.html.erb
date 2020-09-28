@@ -43,4 +43,4 @@
     <%= f.submit "保存する", class: 'btn btn-primary btn-block mb-4' %>
   </div>
 <% end %>
-<%= link_to "削除する", "/salons/#{@salon.id}", class: "btn btn-danger btn-block mb-4" %>
+<%= link_to "削除する", "/salons/#{@salon.id}", method: :delete, class: "btn btn-danger btn-block mb-4", data: { confirm: "本当に削除しますか？" } %>

@@ -28,19 +28,19 @@ class SalonsController < ApplicationController
 
   def create
     @salon = Salon.new(salons_params)
-    
-    # binding.pry
-    
-    if @salon.save
-      redirect_to user_url(current_user.id), notice: "投稿に成功しました！"
-    else
-      flash.now[:alert] = "入力項目に不備があります"
-      render :new
-    end
+      if @salon.save
+        redirect_to user_url(current_user.id), notice: "投稿に成功しました！"
+      else
+        flash[:alert] = "入力項目に不備があります"
+        render :new
+      end
   end
 
   def destroy
-    
+    @salon = Salon.find(params[:id])
+    @salon.destroy
+    flash[:alert] = "削除しました！"
+    redirect_to root_url 
   end
   
 
