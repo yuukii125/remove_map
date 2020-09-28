@@ -10,18 +10,32 @@ class SalonsController < ApplicationController
   end
 
   def edit
+    @salon = Salon.find(params[:id])
 
   end
+
+  def update
+    @salon = Salon.find(params[:id])
+      if @salon.update(salons_params)
+        flash[:success] = "編集しました！"
+        redirect_to "/salons/#{@salon.id}"
+      else
+        flash[:alert] = "編集内容に不備があります"
+        render :edit
+      end
+  end
+  
 
   def create
     @salon = Salon.new(salons_params)
     
     # binding.pry
     
-    if @salon.after_save
-      redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
+    if @salon.save
+      redirect_to user_url(current_user.id), notice: "投稿に成功しました！"
     else
-      render new_salon_url, notice: "入力項目に不備があります"
+      flash.now[:alert] = "入力項目に不備があります"
+      render :new
     end
   end
 

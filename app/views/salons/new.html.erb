@@ -1,6 +1,6 @@
 <h2>店舗登録</h2>
 
-<%= form_with url:"/salons", method: :post do |f| %>
+<%= form_with url:"/salons", method: :post, local: true do |f| %>
   <div class="form-group">
     <%= f.label :name, "店舗名" %>
     <small class="bg-danger text-white">必須</small>
@@ -24,7 +24,7 @@
     <%= f.text_field :phone_number, class: "form-control", placeholder: "000-0000-0000" %>
   </div>
   <div class="form-group">
-    <%= f.label :treatment_areas, "施術可能箇所" %>
+    <%= f.label :treatment_areas, "施術箇所" %>
     <%= f.text_area :treatment_areas, class: "form-control", size: "30*10", placeholder: "ヒゲ・ワキ等" %>
   </div>
   <div class="form-group">

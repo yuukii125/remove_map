@@ -1,2 +1,46 @@
-<h1>Salons#edit</h1>
-<p>Find me in app/views/salons/edit.html.erb</p>
+<h2>店舗編集</h2>
+
+<%= form_with url:"/salons/#{@salon.id}", method: :patch, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "店舗名" %>
+    <small class="bg-danger text-white">必須</small>
+    <small class="form-text text-muted">正式名称をご入力ください</small>
+    <%= f.text_field :name, class: "form-control", value: @salon.name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address, class: "form-control", value: @salon.address %>
+  </div>
+  <div class="form-group">
+    <%= f.label :access, "アクセス" %>
+    <%= f.text_area :access, class: "form-control", size: "30*10", value: @salon.access %>
+  </div>
+  <div class="form-group">
+    <%= f.label :bussiness_hours, "営業時間" %>
+    <%= f.text_area :bussiness_hours, class: "form-control", size: "30*10", value: @salon.bussiness_hours  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone_number, "電話番号" %>
+    <%= f.text_field :phone_number, class: "form-control", value: @salon.phone_number %>
+  </div>
+  <div class="form-group">
+    <%= f.label :treatment_areas, "施術箇所" %>
+    <%= f.text_area :treatment_areas, class: "form-control", size: "30*10", value: @salon.treatment_areas %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fear, "料金" %>
+    <%= f.text_area :fear, class: "form-control", size: "30*10", value: @salon.fear %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url, "HP" %>
+    <%= f.text_field :url, class: "form-control", value: @salon.url %>
+  </div>
+  <%# <div class="form-group">
+    <%= f.label :photo, "外観・店内" %>
+    <%# <%= f.file_field :photo, class: "form-control" %>
+  <%# </div>  %>
+  <div class="form-group">
+    <%= f.submit "保存する", class: 'btn btn-primary btn-block mb-4' %>
+  </div>
+<% end %>
+<%= link_to "削除する", "/salons/#{@salon.id}", class: "btn btn-danger btn-block mb-4" %>
