@@ -5,25 +5,25 @@
   <div class="result_order">
 
   </div>
-  <% @salons.each do |salons| %>
-    <div class="salons">
+  <% @salons.each do |salon| %>
+    <div class="salons card">
       <div class="salons_photo">
         
       </div>
       <div class="salons_name">
-        
+        <%= salon.name %>
       </div>
       <div class="salons_rate">
 
       </div>
       <div class="salons_hour">
-
+        <%= salon.bussiness_hours %>
       </div>
       <div class="salons_access">
-
+        <%= salon.access %>
       </div>
       <div class="salons_treatment_areas">
-
+        <%= salon.treatment_areas %>
       </div>
     </div>
   <% end %>

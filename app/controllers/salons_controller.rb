@@ -1,7 +1,8 @@
 class SalonsController < ApplicationController
   def index
-    @salons = Salon.ransack(params[:q])
-    @salons_result = @salons.result(distinct: true).order(created_at: :desc)
+    # @salons = Salon.ransack(params[:q])
+    # @salons_result = @salons.result(distinct: true).order(created_at: :desc)
+    @salons = Salon.all
   end
 
   def show
@@ -28,8 +29,11 @@ class SalonsController < ApplicationController
 
   def create
     @salon = Salon.new(salons_params)
+    @salon.user_id = current_user.id
+    # binding.pry
+    
       if @salon.save
-        redirect_to user_url(current_user.id), notice: "投稿に成功しました！"
+        redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
       else
         flash[:alert] = "入力項目に不備があります"
         render :new
@@ -48,7 +52,7 @@ class SalonsController < ApplicationController
   private
 
   def salons_params
-    params.permit(:name, :address, :access, :phone_number, :bussiness_hours, :fear, :treatment_areas, :url, :photo, :user_id)
+    params.permit(:name, :address, :access, :phone_number, :bussiness_hours, :fear, :treatment_areas, :url, :photo)
   end
 
 end
