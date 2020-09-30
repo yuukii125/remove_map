@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
 
-  resources :salon do
-    resources :review
+  resources :salons do
+    resources :reviews
   end
 end

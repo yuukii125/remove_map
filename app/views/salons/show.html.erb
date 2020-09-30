@@ -1,2 +1,41 @@
-<h1>Salons#show</h1>
-<p>Find me in app/views/salons/show.html.erb</p>
+<div class="salon_show">
+  <div class="salon_name">
+    <h4><%= @salon.name %></h4>
+  </div>
+  <div class="salon_info card">
+    <h5>基本情報</h5>
+    <div class="border-bottom"></div>
+    <h6 class="card-body">住所</h6>
+      <%= @salon.address %>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">アクセス</h6>
+      <%= @salon.access %>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">営業時間</h6>
+      <%= @salon.bussiness_hours %>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">電話番号</h6>
+      <%= @salon.phone_number %>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">施術箇所</h6>
+      <%= @salon.treatment_areas %>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">料金</h6>
+      <%= @salon.fear %>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">HP</h6>
+      <% if @salon.url.present? %>
+        <%= link_to @salon.url, @salon.url, target: :_blank %>
+      <% end %>
+  </div>
+  <div class="salon_map">
+    <h5>場所</h5>
+  </div>
+  <div class="salon_review">
+    <h5>口コミ</h5>
+  </div>
+  <div class="salon_photo">
+    <h5>写真</h5>
+  </div>
+  <%= link_to "編集", edit_salon_path, class: "btn btn-primary text-white" %>
+</div>
