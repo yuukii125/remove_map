@@ -1,30 +1,26 @@
 <div class="salons_index">
   <div class="salons_search">
-    <p>件の検索結果</p>
+    <p><%= @salons.count %>件の検索結果</p>
   </div>
   <div class="result_order">
 
   </div>
   <% @salons.each do |salon| %>
-    <div class="salons card">
-      <div class="salons_photo">
-        
-      </div>
-      <div class="salons_name">
-        <%= salon.name %>
-      </div>
-      <div class="salons_rate">
+    <%= link_to salon_path(salon.id), class: "text-body" do  %>
+      <div class="salons card">
+        <div class="salons_photo">
+          
+        </div>
+        <div class="salons_name">
+          <%= salon.name %>
+        </div>
+        <div class="salons_rate">
 
+        </div>
+        <div class="salons_address">
+          住所 : <%= salon.address %>
+        </div>
       </div>
-      <div class="salons_hour">
-        <%= salon.bussiness_hours %>
-      </div>
-      <div class="salons_access">
-        <%= salon.access %>
-      </div>
-      <div class="salons_treatment_areas">
-        <%= salon.treatment_areas %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

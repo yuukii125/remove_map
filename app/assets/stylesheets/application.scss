@@ -16,6 +16,11 @@ main {
   @extend .alert-danger;
 }
 
-.user_show {
+.user_show, .salons_index, .salon_show {
   margin-top: 50px;
+}
+
+.salons {
+  height: 120px;
+  padding: 10px;
 }

@@ -1,22 +1,29 @@
 <div class="salon_show">
   <div class="salon_name">
-    <h3><%= @salon.name %></h3>
+    <h4><%= @salon.name %></h4>
   </div>
-  <div class="salon_info">
+  <div class="salon_info card">
     <h5>基本情報</h5>
-    <h6>住所</h6>
+    <div class="border-bottom"></div>
+    <h6 class="card-body">住所</h6>
       <%= @salon.address %>
-    <h6>アクセス</h6>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">アクセス</h6>
       <%= @salon.access %>
-    <h6>営業時間</h6>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">営業時間</h6>
       <%= @salon.bussiness_hours %>
-    <h6>電話番号</h6>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">電話番号</h6>
       <%= @salon.phone_number %>
-    <h6>施術箇所</h6>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">施術箇所</h6>
       <%= @salon.treatment_areas %>
-    <h6>料金</h6>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">料金</h6>
       <%= @salon.fear %>
-    <h6>HP</h6>
+      <div class="border-bottom"></div>
+    <h6 class="card-body">HP</h6>
       <% if @salon.url.present? %>
         <%= link_to @salon.url, @salon.url, target: :_blank %>
       <% end %>
