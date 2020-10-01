@@ -16,6 +16,12 @@ main {
   @extend .alert-danger;
 }
 
+.pagination {
+  margin-top: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
 .user_show, .salons_index, .salon_show {
   margin-top: 50px;
 }
