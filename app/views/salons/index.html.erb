@@ -1,6 +1,7 @@
-<div class="salons_index">
+<div class="container">
   <div class="salons_search">
-    <p><%= @salons.count %>件の検索結果</p>
+      <p>検索ワード：<%= @q.name_cont %></p>
+      <p><%= @salons.count %>件の検索結果</p>
   </div>
   <div class="result_order">
 

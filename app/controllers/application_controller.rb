@@ -1,5 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
+
+  PER_PAGE = 10
+  def set_search
+    @q = Salon.ransack(params[:q])
+    @salons = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+  end
+
 
   protected
 
