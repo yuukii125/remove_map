@@ -1,5 +1,6 @@
 class SalonsController < ApplicationController
-  PER_PAGE = 10
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
   end
 

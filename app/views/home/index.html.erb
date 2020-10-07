@@ -4,15 +4,65 @@
     <p>どこで脱毛できるか知ることができて</p>
     <p>その店舗のリアルな口コミを知ることができます！</p>
   </div>
+
+  <button type="button" class="btn btn-primary" data-toggle="#" data-target="#" >
+  キーワード検索
+  </button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prefectureModal" >
+  都道府県
+  </button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#featureModal" >
+  特徴
+  </button>
+
+
   <div class="search_box">
     <%= search_form_for @q, url: salons_path do |f|%>
       <div class="form-group">
-        <%= f.label :name_cont, "キーワード検索" %>
-        <%= f.search_field :name_cont, class: "form-control", placeholder: "店舗名・エリア・特徴" %>
+        <%= f.search_field :name_cont, class: "form-control", placeholder: "店舗名" %>
         <div class="form-group-append">
           <%= f.submit "検索", class: "btn btn-primary" %>
         </div>
       </div>
+
+      <div class="modal" id="prefectureModal" tabindex="-1" role="dialog" aria-labelledby="prefectureModalLabel" aria-hidden="true">
+        <div class="modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="prefectureModal">都道府県検索</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= f.search_field :name_cont, class: "form-control", placeholder: "店舗名" %>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="featureModal" tabindex="-1" role="dialog" aria-labelledby="featureModalLabel" aria-hidden="true">
+        <div class="modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="featureModal">特徴</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= f.search_field :name_cont, class: "form-control", placeholder: "店舗名" %>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <% end %>
   </div>
 </div>

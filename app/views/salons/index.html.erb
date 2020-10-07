@@ -1,7 +1,9 @@
 <div class="container">
   <div class="salons_search">
-      <p>検索ワード：<%= @q.name_cont %></p>
-      <p><%= @salons.count %>件の検索結果</p>
+  <% if @q.name_cont.present? %>
+    <p class="card">検索ワード：<%= @q.name_cont %></p>
+  <% end %>
+    <p><%= @salons.total_count %>件中<%= @salons.count %>件を表示</p>
   </div>
   <div class="result_order">
 
