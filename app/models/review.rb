@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to :salon
-  validates_uniqueness_of :salon_id, scope: :user_id
+  # validates_uniqueness_of :salon_id, scope: :user_id
 end

@@ -33,13 +33,14 @@
   </div>
   <div class="salon_review">
     <h5>口コミ</h5>
-    <%# <%= link_to "口コミを投稿する", new_salon_review_path(@salon.id), class: "btn btn-primary text-wihte" %>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" >
       口コミを投稿する
       </button>
-      <%# <% if @reviews.comment.present? %>
-        <%# <%= @reviews.comment %>
-      <%# <% end %> 
+      <% if @comments.present? %>
+        <% @comments.each do |comment| %>
+          <%= comment.comment %>
+        <% end %>
+      <% end %>
   </div>
   <div class="salon_photo">
     <h5>写真</h5>
@@ -47,7 +48,6 @@
   <%= link_to "編集", edit_salon_path, class: "btn btn-primary text-white" %>
 </div>
 
-<%# <%= link_to "口コミを投稿する", new_salon_review_path(@salon.id) do |f|%>
 <%# レビュー投稿モーダルウィンドウ %>
 <div class="modal" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog-centered" role="document">

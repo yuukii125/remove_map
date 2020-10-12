@@ -6,7 +6,7 @@ class SalonsController < ApplicationController
 
   def show
     @salon = Salon.find(params[:id])
-    @reviews = @salon.reviews
+    @comments = @salon.reviews
   end
 
   def edit
