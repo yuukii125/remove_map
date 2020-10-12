@@ -1,9 +1,7 @@
 class SalonsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
-    # @salons = Salon.ransack(params[:q])
-    # @salons_result = @salons.result(distinct: true).order(created_at: :desc)
-    @paginate_num = 1
-    @salons = Salon.all.page(params[:page]).per(@paginate_num)
   end
 
   def show
@@ -32,13 +30,12 @@ class SalonsController < ApplicationController
     @salon = Salon.new(salons_params)
     @salon.user_id = current_user.id
     # binding.pry
-    
-      if @salon.save
-        redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
-      else
-        flash[:alert] = "入力項目に不備があります"
-        render :new
-      end
+    if @salon.save
+      redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
+    else
+      flash[:alert] = "入力項目に不備があります"
+      render :new
+    end
   end
 
   def destroy

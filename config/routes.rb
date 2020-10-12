@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :salons do
-    resources :reviews
+    resources :reviews, only: [:create, :destroy]
   end
 end
