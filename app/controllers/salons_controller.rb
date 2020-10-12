@@ -30,13 +30,12 @@ class SalonsController < ApplicationController
     @salon = Salon.new(salons_params)
     @salon.user_id = current_user.id
     # binding.pry
-    
-      if @salon.save
-        redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
-      else
-        flash[:alert] = "入力項目に不備があります"
-        render :new
-      end
+    if @salon.save
+      redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
+    else
+      flash[:alert] = "入力項目に不備があります"
+      render :new
+    end
   end
 
   def destroy

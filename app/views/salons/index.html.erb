@@ -1,12 +1,13 @@
 <div class="container">
   <div class="salons_search">
-  <% if @q.name_cont.present? %>
-    <p class="card">検索ワード：<%= @q.name_cont %></p>
+  <% if @q.name_or_address_or_fear_or_treatment_areas_cont.present? %>
+  <%# <% binding.pry %>
+    <p class="card">検索ワード：<%= @q.name_or_address_or_fear_or_treatment_areas_cont %></p>
   <% end %>
     <p><%= @salons.total_count %>件中<%= @salons.count %>件を表示</p>
   </div>
   <div class="result_order">
-
+    <%# <p>並び順</p> %>
   </div>
   <% @salons.each do |salon| %>
     <%= link_to salon_path(salon.id), class: "text-body" do  %>
