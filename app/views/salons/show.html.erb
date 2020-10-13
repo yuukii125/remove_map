@@ -33,14 +33,28 @@
   </div>
   <div class="salon_review">
     <h5>口コミ</h5>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" >
-      口コミを投稿する
-      </button>
-      <% if @comments.present? %>
-        <% @comments.each do |comment| %>
-          <%= comment.comment %>
-        <% end %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
+    口コミを投稿する
+    </button>
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <div class="card">
+          <div class="card-body">
+            <% if comment.user.image? %>
+              <%= image_tag comment.user.image.url, size: '30' %>
+            <% else %>
+              <%= image_tag "/assets/default.jpg", size: '30' %>
+            <% end %>
+            <%= comment.user.name %>
+            <%= comment.comment %>
+                        <%# <%= comment.created_at %>
+            <% if comment.user_id == current_user.id %>
+              <%= link_to "削除", salon_review_path(comment.salon_id,comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }%>
+            <% end %>
+          </div>
+        </div>
       <% end %>
+    <% end %>
   </div>
   <div class="salon_photo">
     <h5>写真</h5>
@@ -60,7 +74,7 @@
       </div>
       <%= form_with url:salon_reviews_path(@salon.id), method: :post do |f| %>
         <div class="modal-body">
-          <%= f.text_area :comment, size: "100*10"%>
+          <%= f.text_area :comment, size: "30*60"%>
         </div>
         <div class="modal-footer">
           <%= f.submit "投稿する", class: "btn btn-primary btn-block" %>

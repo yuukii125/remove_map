@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(reviews_params)
-    @review.user_id = current_user.id
+    # @review.user_id = current_user.id
     if @review.save
       redirect_to salon_url(@review.salon.id), notice: "投稿に成功しました！"
     else
@@ -14,8 +14,11 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def destory
-
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    flash[:alert] = "削除しました！"
+    redirect_to root_url
   end
 
   private
