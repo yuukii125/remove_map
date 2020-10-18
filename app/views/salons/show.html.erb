@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container mt-5">
   <div class="salon_name">
     <h4><%= @salon.name %></h4>
+    <%# <%= @salon.reviews.rate %>
   </div>
   <div class="salon_info card">
     <h5>基本情報</h5>
@@ -33,27 +34,40 @@
   </div>
   <div class="salon_review">
     <h5>口コミ</h5>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModalCentered">
     口コミを投稿する
     </button>
     <% if @comments.present? %>
       <% @comments.each do |comment| %>
         <div class="card">
-          <div class="card-body">
-            <% if comment.user.image? %>
-              <%= image_tag comment.user.image.url, size: '30' %>
-            <% else %>
-              <%= image_tag "/assets/default.jpg", size: '30' %>
-            <% end %>
-            <%= comment.user.name %>
-            <%= comment.comment %>
-                        <%# <%= comment.created_at %>
-            <% if comment.user_id == current_user.id %>
-              <%= link_to "削除", salon_review_path(comment.salon_id,comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }%>
-            <% end %>
+          <div class="card-body d-flex justify-content-start">
+            <div class="review_icon">
+              <% if comment.user.image? %>
+                <%= image_tag comment.user.image.url, size: '50' %>
+              <% else %>
+                <%= image_tag "/assets/default.jpg", size: '50' %>
+              <% end %>
+            </div>
+            <div class="d-flex flex-column align-items-start ml-3">
+              <div class="review_name">
+                <%= link_to "#{comment.user.name}", user_path(comment.user_id), class: "text-body" %>
+              </div>
+              <%= comment.rate %>
+              <div class="review_comment text-left">
+              <%= comment.comment %>
+              </div>
+              <div class="review_create text-black-50">
+                投稿日時：<%= comment.created_at.strftime("%Y/%m/%d") %>
+              </div>
+              <% if comment.user_id == current_user.id %>
+                <%= link_to "削除", salon_review_path(comment.salon_id,comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }%>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
+    <% else %>
+      <p class="card">口コミはまだありません</p>
     <% end %>
   </div>
   <div class="salon_photo">
@@ -62,24 +76,35 @@
   <%= link_to "編集", edit_salon_path, class: "btn btn-primary text-white" %>
 </div>
 
-<%# レビュー投稿モーダルウィンドウ %>
-<div class="modal" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-  <div class="modal-dialog-centered" role="document">
+<div class="modal" id="reviewModalCentered" tabindex="-1" role="dialog" aria-labelledby="reviewModalCenteredLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="reviewModal">口コミを投稿する</h5>
+        <h5 class="modal-title" id="reviewModalCenteredLabel">口コミを書く</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with url:salon_reviews_path(@salon.id), method: :post do |f| %>
-        <div class="modal-body">
-          <%= f.text_area :comment, size: "30*60"%>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "投稿する", class: "btn btn-primary btn-block" %>
-        </div>
-      <% end %>
+      <div class="modal-body">
+        <%= form_with url:salon_reviews_path(@salon.id), method: :post do |f| %>
+          <div class="main_rating">
+            <div class="rating">
+              <span class="far fa-star" id="star"></sapn>
+              <span class="far fa-star" id="star"></sapn>
+              <span class="far fa-star" id="star"></sapn>
+              <span class="far fa-star" id="star"></sapn>
+              <span class="far fa-star" id="star"></sapn>
+            </div>
+            <div class="rating_value_display">
+              <span id="rating_value_display">0</span>/5
+            </div>
+            <%= f.text_area :comment %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit "投稿する", class: "btn btn-primary " %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

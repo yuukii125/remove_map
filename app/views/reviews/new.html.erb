@@ -1,0 +1,19 @@
+<div class="container mt-5 ">
+<h5>口コミを書く</h5>
+  <%= form_with url:salon_reviews_path(@salon), method: :post do |f| %>
+      <div class="main_rating">
+        <div class="rating">
+          <span class="far fa-star" id="star"></sapn>
+          <span class="far fa-star" id="star"></sapn>
+          <span class="far fa-star" id="star"></sapn>
+          <span class="far fa-star" id="star"></sapn>
+          <span class="far fa-star" id="star"></sapn>
+        </div>
+      <div class="rating_value_display">
+        <span id="rating_value_display">0</span>/5
+      </div>
+      <%= f.text_area :comment%>
+    </div>
+      <%= f.submit "投稿する", class: "btn btn-primary " %>
+  <% end %>
+</div>

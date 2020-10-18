@@ -22,11 +22,17 @@ main {
   width: 100%;
 }
 
-.container, .search_box {
-  margin-top: 50px;
-}
 
 .salons {
   height: 120px;
   padding: 10px;
+}
+
+.text-body:hover{
+  text-decoration: none;
+}
+
+.far {
+  font-size: 20px;
+  color: #ffcc00;
 }

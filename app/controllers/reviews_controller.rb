@@ -1,11 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destory]
-  def index
-  end
 
   def create
     @review = Review.new(reviews_params)
-    # @review.user_id = current_user.id
+    @review.user_id = current_user.id
     if @review.save
       redirect_to salon_url(@review.salon.id), notice: "投稿に成功しました！"
     else
@@ -17,14 +15,17 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    flash[:alert] = "削除しました！"
-    redirect_to root_url
+    flash[:alert] = "口コミを削除しました！"
+    redirect_to salon_url(@review.salon.id)
+    
+    # binding.pry
+    
   end
 
   private
 
   def reviews_params
-    params.permit(:user_id, :salon_id, :comment, :rate)
+    params.permit(:salon_id, :comment, :rate)
   end
 
 end
