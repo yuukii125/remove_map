@@ -76,6 +76,7 @@
   <%= link_to "編集", edit_salon_path, class: "btn btn-primary text-white" %>
 </div>
 
+<%# 口コミ投稿モーダルウィンドウ %>
 <div class="modal" id="reviewModalCentered" tabindex="-1" role="dialog" aria-labelledby="reviewModalCenteredLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -87,16 +88,12 @@
       </div>
       <div class="modal-body">
         <%= form_with url:salon_reviews_path(@salon.id), method: :post do |f| %>
+        <%# サロンIDの送信 %>
+          <%= f.hidden_field :salon_id, value: @salon.id %>
           <div class="main_rating">
-            <div class="rating">
-              <span class="far fa-star" id="star"></sapn>
-              <span class="far fa-star" id="star"></sapn>
-              <span class="far fa-star" id="star"></sapn>
-              <span class="far fa-star" id="star"></sapn>
-              <span class="far fa-star" id="star"></sapn>
-            </div>
-            <div class="rating_value_display">
-              <span id="rating_value_display">0</span>/5
+            <div class="rating mb-2" id="star">
+            <%= f.label :rate, "評価" %>
+            <%= f.hidden_field :rate, id: :review_star %>
             </div>
             <%= f.text_area :comment %>
           </div>
@@ -108,3 +105,14 @@
     </div>
   </div>
 </div>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf : '<%= asset_path('star-half.png') %>',
+  scoreName: 'review[rate]' ,
+  half: true,
+});
+</script>

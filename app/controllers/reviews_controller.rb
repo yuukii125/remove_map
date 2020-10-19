@@ -17,9 +17,6 @@ class ReviewsController < ApplicationController
     @review.destroy
     flash[:alert] = "口コミを削除しました！"
     redirect_to salon_url(@review.salon.id)
-    
-    # binding.pry
-    
   end
 
   private
