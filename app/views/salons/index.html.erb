@@ -1,7 +1,6 @@
-<div class="container">
+<div class="container mt-5">
   <div class="salons_search">
   <% if @q.name_or_address_or_fear_or_treatment_areas_cont.present? %>
-  <%# <% binding.pry %>
     <p class="card">検索ワード：<%= @q.name_or_address_or_fear_or_treatment_areas_cont %></p>
   <% end %>
     <p><%= @salons.total_count %>件中<%= @salons.count %>件を表示</p>
