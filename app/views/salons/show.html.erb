@@ -34,9 +34,10 @@
   </div>
   <div class="salon_review">
     <h5>口コミ</h5>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModalCentered">
+    <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModalCentered">
     口コミを投稿する
-    </button>
+    </button> %>
+    <%= link_to "口コミを投稿する", new_salon_review_path(@salon), class: "btn btn-primary" %>
     <% if @comments.present? %>
       <% @comments.each do |comment| %>
         <div class="card">
@@ -75,44 +76,3 @@
   </div>
   <%= link_to "編集", edit_salon_path, class: "btn btn-primary text-white" %>
 </div>
-
-<%# 口コミ投稿モーダルウィンドウ %>
-<div class="modal" id="reviewModalCentered" tabindex="-1" role="dialog" aria-labelledby="reviewModalCenteredLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="reviewModalCenteredLabel">口コミを書く</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= form_with url:salon_reviews_path(@salon.id), method: :post do |f| %>
-        <%# サロンIDの送信 %>
-          <%= f.hidden_field :salon_id, value: @salon.id %>
-          <div class="main_rating">
-            <div class="rating mb-2" id="star">
-            <%= f.label :rate, "評価" %>
-            <%= f.hidden_field :rate, id: :review_star %>
-            </div>
-            <%= f.text_area :comment %>
-          </div>
-          <div class="modal-footer">
-            <%= f.submit "投稿する", class: "btn btn-primary " %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-$('#star').raty({
-  size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  starHalf : '<%= asset_path('star-half.png') %>',
-  scoreName: 'review[rate]' ,
-  half: true,
-});
-</script>
