@@ -22,15 +22,15 @@ main {
   width: 100%;
 }
 
-.container, .search_box {
-  margin-top: 50px;
-}
-
 .salons {
   height: 120px;
   padding: 10px;
 }
 
-// .modal {
-//   width: 80%;
-// }
+.text-body:hover{
+  text-decoration: none;
+}
+
+#star img {
+  width: 20px;
+}

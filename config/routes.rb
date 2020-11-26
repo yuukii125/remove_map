@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   post '/home/guest_sign_in', to: 'home#new_guest'
 
   resources :salons do
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:new, :create, :destroy]
   end
 end
