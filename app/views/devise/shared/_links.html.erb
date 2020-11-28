@@ -1,4 +1,6 @@
 <div class="form-group">
+  <%= link_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post, class: "btn btn-success btn-block mb-4" %>
+
   <%- if controller_name != 'sessions' %>
     <%= link_to t(".sign_in"), new_session_path(resource_name), class: 'btn btn-info btn-block mb-4' %><br />
   <% end -%>
@@ -25,6 +27,5 @@
     <% end -%>
   <% end -%>
 
-  <%= link_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post, class: "mb-3 btn btn-success btn-block" %>
 
 </div>
