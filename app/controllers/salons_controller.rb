@@ -7,11 +7,16 @@ class SalonsController < ApplicationController
   def show
     @salon = Salon.find(params[:id])
     @comments = @salon.reviews.order(created_at: :desc)
+    @comment_count = @comments.select("id").count
+    unless @comments.select("rate").blank?
+      @ave = @comments.select("rate").average(:rate).round(half: :up)
+    else
+      @ave = 0
+    end 
   end
 
   def edit
     @salon = Salon.find(params[:id])
-
   end
 
   def update
@@ -25,7 +30,6 @@ class SalonsController < ApplicationController
       end
   end
   
-
   def create
     @salon = Salon.new(salons_params)
     @salon.user_id = current_user.id
@@ -44,8 +48,6 @@ class SalonsController < ApplicationController
     redirect_to root_url 
   end
   
-
-
   private
 
   def salons_params
