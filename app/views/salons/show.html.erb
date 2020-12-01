@@ -1,9 +1,20 @@
 <div class="container mt-5">
-  <div class="salon_name">
-    <h4><%= @salon.name %></h4>
+  <div class="d-flex flex-row">
+    <div class="salons_photo">
+      <% if @salon.photo? %>
+        <%= image_tag @salon.photo.url, size: '100' %>
+      <% else %>
+        <%= image_tag "/assets/no_photo.jpg", size: '100' %>
+      <% end %>
+    </div>
+    <div class="salon_name ml-3">
+      <h4><%= @salon.name %></h4>
+    </div>
   </div>
+  <div class="card mt-3">
     総合評価：<%= @ave %>/5.0
     口コミ件数：<%= @comment_count %>件
+  </div>
   <div class="salon_info card mt-1">
     <h5>基本情報</h5>
     <div class="border-bottom"></div>
