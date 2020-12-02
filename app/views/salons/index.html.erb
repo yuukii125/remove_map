@@ -19,20 +19,25 @@
   </div>
   <% @salons.each do |salon| %>
     <%= link_to salon_path(salon.id), class: "text-body" do  %>
-      <div class="salons card">
-        <div class="salons_photo">
-          
+      <div class="salons card flex-row">
+        <div class="salons_photo ">
+          <% if salon.photo? %>
+            <%= image_tag salon.photo.url, size: '100' %>
+          <% else %>
+            <%= image_tag "/assets/no_photo.jpg", size: '100' %>
+          <% end %>
         </div>
-        <div class="salons_name">
-          <%= salon.name %>
+        <div class="flex-column ml-1 text-left ">
+          <div class="salons_name mb-2">
+            <%= salon.name %>
+          </div>
+          <div class="salons_rate">
+    
+          </div>
+          <div class="salons_address">
+            住所 : <%= salon.address %>
+          </div>
         </div>
-        <div class="salons_rate">
-
-        </div>
-        <div class="salons_address">
-          住所 : <%= salon.address %>
-        </div>
-
       </div>
     <% end %>
   <% end %>
