@@ -7,7 +7,7 @@ class Salon < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader 
 
-  
+  # csvインポート
   def self.import(path)
     list =[]
     CSV.foreach(path, headers: true) do |row|
