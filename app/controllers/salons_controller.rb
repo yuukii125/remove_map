@@ -37,7 +37,7 @@ class SalonsController < ApplicationController
     if @salon.save
       redirect_to salon_url(@salon.id), notice: "投稿に成功しました！"
     else
-      flash[:alert] = "入力項目に不備があります"
+      flash[:alert] = "入力項目に不備があるか、その店舗はすでに登録されています"
       render :new
     end
   end

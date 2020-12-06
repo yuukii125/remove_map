@@ -5,40 +5,40 @@
     <%= f.label :name, "店舗名" %>
     <small class="bg-danger text-white">必須</small>
     <small class="form-text text-muted">正式名称をご入力ください</small>
-    <%= f.text_field :name, class: "form-control", placeholder: "〇〇クリニック　△△店" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "〇〇クリニック　△△店", value: @salon.name %>
   </div>
   <div class="form-group">
     <%= f.label :address, "住所" %>
     <small class="bg-danger text-white">必須</small>
-    <%= f.text_field :address, class: "form-control", placeholder: "〇〇県△△市□□町00-00"  %>
+    <%= f.text_field :address, class: "form-control", placeholder: "〇〇県△△市□□町00-00", value: @salon.address  %>
   </div>
   <div class="form-group">
     <%= f.label :access, "アクセス" %>
-    <%= f.text_area :access, class: "form-control", size: "30*10", placeholder: "〇〇駅より徒歩△分"  %>
+    <%= f.text_area :access, class: "form-control", size: "30*10", placeholder: "〇〇駅より徒歩△分", value: @salon.access  %>
   </div>
   <div class="form-group">
     <%= f.label :bussiness_hours, "営業時間" %>
-    <%= f.text_area :bussiness_hours, class: "form-control", size: "30*10", placeholder: "9時-18時"  %>
+    <%= f.text_area :bussiness_hours, class: "form-control", size: "30*10", placeholder: "9時-18時", value: @salon.bussiness_hours  %>
   </div>
   <div class="form-group">
     <%= f.label :phone_number, "電話番号" %>
-    <%= f.text_field :phone_number, class: "form-control", placeholder: "000-0000-0000" %>
+    <%= f.text_field :phone_number, class: "form-control", placeholder: "000-0000-0000", value: @salon.phone_number %>
   </div>
   <div class="form-group">
     <%= f.label :treatment_areas, "施術箇所" %>
-    <%= f.text_area :treatment_areas, class: "form-control", size: "30*10", placeholder: "ヒゲ・ワキ等" %>
+    <%= f.text_area :treatment_areas, class: "form-control", size: "30*10", placeholder: "ヒゲ・ワキ等", value: @salon.treatment_areas %>
   </div>
   <div class="form-group">
     <%= f.label :fear, "料金" %>
-    <%= f.text_area :fear, class: "form-control", size: "30*10", placeholder: "ヒゲだけ　0円～" %>
+    <%= f.text_area :fear, class: "form-control", size: "30*10", placeholder: "ヒゲだけ　0円～", value: @salon.fear %>
   </div>
   <div class="form-group">
     <%= f.label :url, "HP" %>
-    <%= f.text_field :url, class: "form-control", placeholder: "https://www.datsumou-map.com" %>
+    <%= f.text_field :url, class: "form-control", placeholder: "https://www.datsumou-map.com", value: @salon.url %>
   </div>
   <div class="form-group">
     <%= f.label :photo, "外観・店内" %>
-    <%= f.file_field :photo, class: "form-control" %>
+    <%= f.file_field :photo, class: "form-control", value: @salon.photo %>
   </div>
   <div class="form-group">
     <%= f.submit "登録する", class: 'btn btn-primary btn-block mb-4' %>
