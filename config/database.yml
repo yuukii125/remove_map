@@ -83,3 +83,4 @@ production:
   database: remove_map_production
   username: remove_map
   password: <%= ENV['REMOVE_MAP_DATABASE_PASSWORD'] %>
+  
